@@ -1,0 +1,36 @@
+<section class="header ">
+    <div class="titel mt-5">
+        <h3>ALL users</h3>
+    </div>
+    <table class="table  text-center table-bordered border-primary  container">
+    <thead>
+      <tr>
+        <th scope="col">id</th>
+        <th scope="col">name</th>
+        <th scope="col">email</th>
+        <th scope="col">phone</th>
+        <th scope="col">roles</th>
+        <th scope="col">methods</th>
+        <th scope="col">controols</th>
+      </tr>
+    </thead >
+    <tbody class="table-group-divider">
+      <tr *ngFor="let user of users">
+        <th scope="row">{{user._id}}</th>
+        <td>{{user.fName}} {{user.lName}}</td>
+        <td>{{user.email}}</td>
+        <td>{{user.phone}}</td>
+        <td>{{user.roles}}</td>
+        <td>{{user.methods}}</td>
+        
+        <td><div class="btn-group" role="group" aria-label="Basic mixed styles example">
+            <button type="button" class="btn btn-success" routerLink="/getsingleclient/{{user._id}}">viwe</button>
+            <button type="button" class="btn btn-warning">edit</button>
+            <button type="button" class="btn btn-danger">delete</button>
+          </div></td>
+      </tr>
+     
+    </tbody>
+  </table></section>
+
+

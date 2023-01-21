@@ -1,0 +1,24 @@
+<div class="col-12 col-md-3 col-lg-3 left mt-5">
+    <div class="userinfo mt-5">
+
+
+     
+
+      <div class="information mt-3">
+        <h5> <span><i class="fas fa-user"></i></span>{{clinet.fName}} {{clinet.lName}}</h5>
+        <h5> <span><i class="fas fa-envelope"></i></span>{{clinet.email}}</h5>
+        <h5> <span><i class="fas fa-phone-alt"></i></span>{{clinet.phone}}</h5>
+        <h5> <span><i class="fas fa-phone-alt"></i></span>{{clinet.age}}</h5>
+        <h5> <span><i class="fas fa-phone-alt"></i></span>{{clinet.nationalId}}</h5>
+        <h5> <span><i class="fas fa-phone-alt"></i></span>{{clinet.transactions}}</h5>
+
+      </div>
+    </div>
+    <button class="btn-btn-ms" (click)="delete()">delete</button>
+    <div  *ngIf="msg">
+        <div class="alert alert-danger" role="alert">
+           {{msg}}
+          </div>
+
+    </div>
+  </div>

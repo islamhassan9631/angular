@@ -1,0 +1,27 @@
+
+<div class="container"><div class="col-12 col-md-12col-lg-12  row mt-5 text">
+    <div class="col-12 col-md-3 col-lg-3 mt-2" *ngFor="let bulid of buliding">
+        <div class="card" >
+            <img src="" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">{{bulid.projectName}}</h5>
+              <p class="card-text">{{bulid._id}}</p>
+              <div class="card-text" *ngFor="let item of bulid.building">
+               
+                <div *ngFor="let br of item.build">
+                  {{br|json}}
+                 <p>{{br.area}}</p> 
+                 <div *ngFor="let floor of br.floors">
+                  {{floor|json}}
+                 </div>
+                </div>
+               
+                </div>
+             
+            </div>
+          </div>
+    </div>
+   
+    <a href="#" class="btn ">show more</a>
+</div>
+</div>

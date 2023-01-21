@@ -1,0 +1,31 @@
+<section class="header">
+    <form #contactForm="ngForm" (ngSubmit)="addtransction(contactForm.value)"  class="container  mb-5 border border-info card">
+    <h2 class="mt-2">signin</h2>
+    <div class="mb-3">
+        <label for="unit" class="form-label"><span><i class="fa fa-user" aria-hidden="true"></i></span> unit</label>
+        <input type="text" class="form-control " id="unit" name="unit" ngModel #unit="ngModel" required />
+      
+       
+    </div>
+    <div class="mb-3">
+        <label for="client" class="form-label"><span><i class="fa fa-user" aria-hidden="true"></i></span> client</label>
+        <input type="text" class="form-control " id="client" name="client" ngModel #client="ngModel" required />
+       
+       
+    </div>
+
+    
+
+  
+  
+
+    
+   
+  
+   
+   
+   
+    <button type="submit" class="btn  mb-3" >Submit</button>
+</form>
+</section>
+

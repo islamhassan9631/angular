@@ -1,0 +1,19 @@
+.header{
+    background-image: url(../../../assets/img/home-s-bg.jpg);
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    overflow: hidden;
+    position: relative;
+    color: white;
+}
+.table{
+    color: white;
+    margin-top: 60px;
+}
+.titel{
+    text-align: center;
+   
+   
+    color: aqua;
+}

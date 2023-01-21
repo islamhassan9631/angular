@@ -1,0 +1,141 @@
+<section class="connect">
+  <div class="row">
+    <div class="col-12 col-md-3 col-lg-3 left mt-5">
+      <div class="userinfo mt-5">
+
+
+        <img src="https://images.pexels.com/photos/3228727/pexels-photo-3228727.jpeg?auto=compress&cs=tinysrgb&w=1600"
+          alt="" class='profilepic' />
+
+        <div class="information mt-3">
+          <h5> <span><i class="fas fa-user"></i></span>{{user.fName}} {{user.lName}}</h5>
+          <h5> <span><i class="fas fa-envelope"></i></span>{{user.email}}</h5>
+          <h5> <span><i class="fas fa-phone-alt"></i></span>{{user.phone}}</h5>
+          <h5> <span><i class="fas fa-phone-alt"></i></span>{{user.age}}</h5>
+          <h5> <span><i class="fas fa-phone-alt"></i></span>{{user.roles}}</h5>
+
+        </div>
+      </div>
+    </div>
+    
+      
+  <!-- <div  [ngSwitch]="shwo">
+      <div *ngSwitchCase="item.adduser"
+         >
+       <app-addusers></app-addusers>
+      </div>
+    </div> -->
+     
+      <div class="col-12 col-md-7 col-lg-7 mt-5" >
+         <app-building></app-building>  
+          </div>
+       
+
+      
+
+  
+   
+
+
+  
+  <div class="col-12 col-md-2 col-lg-2   right mt-5">
+    <div class="information mt-5" *ngFor="let item of comp ">
+
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0" *ngFor="let item of comp">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            <span><i class="fas fa-user"></i></span> user
+          </a>
+
+          <ul class="dropdown-menu  border-0" aria-labelledby="navbarDropdown">
+            <li class="border-top border-primary  "><a class="dropdown-item" routerLink="/addusers"><span><i
+                    class="fas fa-user"></i></span>{{item.adduser}}</a></li>
+            <li><a class="dropdown-item" routerLink="/getusers"><span><i class="fas fa-user"></i></span>get alluser</a>
+            </li>
+
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            <span><i class="fas fa-envelope"></i></span> projct
+          </a>
+
+          <ul class="dropdown-menu  border-0" aria-labelledby="navbarDropdown">
+            <li class="border-top border-primary"><a class="dropdown-item" routerLink="/login"><span><i
+                    class="fas fa-envelope"></i></span>Add projct</a></li>
+            <li><a class="dropdown-item" routerLink="/getproject"><span><i class="fas fa-envelope"></i></span>get
+                projct</a></li>
+
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            <span><i class="fas fa-building"></i></span> Buliding
+          </a>
+
+          <ul class="dropdown-menu  border-0" aria-labelledby="navbarDropdown">
+            <li class="border-top border-primary"><a class="dropdown-item" routerLink="/login"><span><i
+                    class="fas fa-building"></i></span>Add Bulid</a></li>
+            <li><a class="dropdown-item"  ><span><i class="fas fa-building"></i></span>get
+                Buliding</a></li>
+                <li><a class="dropdown-item" routerLink="/addusers"><span><i class="fas fa-building"></i></span>add
+                  floor</a></li>
+
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            <span><i class="fas fa-building"></i></span> Unit
+          </a>
+
+          <ul class="dropdown-menu  border-0" aria-labelledby="navbarDropdown">
+            <li class="border-top border-primary"><a class="dropdown-item" routerLink="/login"><span><i
+                    class="fas fa-building"></i></span>Add unit</a></li>
+            <li><a class="dropdown-item" routerLink="/addusers"><span><i class="fas fa-building"></i></span>get unit</a>
+            </li>
+
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            <span><i class="fas fa-user"></i></span> Clinet
+          </a>
+
+          <ul class="dropdown-menu  border-0" aria-labelledby="navbarDropdown">
+            <li class="border-top border-primary"><a class="dropdown-item" routerLink="/getclinet"><span><i
+                    class="fas fa-user"></i></span> GETclinet</a></li>
+            <li><a class="dropdown-item" routerLink="/addclinet"><span><i class="fas fa-user"></i></span>Add clinet</a>
+            </li>
+
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            <span><i class="fas fa-user"></i></span> transactions
+          </a>
+
+          <ul class="dropdown-menu  border-0" aria-labelledby="navbarDropdown">
+            <li class="border-top border-primary"><a class="dropdown-item" routerLink="/gettransactions"><span><i
+                    class="fas fa-user"></i></span> GET transactions</a></li>
+            <li><a class="dropdown-item" routerLink="/addtransaction"><span><i class="fas fa-user"></i></span>Add transactions</a>
+            </li>
+
+          </ul>
+        </li>
+
+
+
+      </ul>
+
+    </div>
+
+  </div>
+  </div>
+</section>

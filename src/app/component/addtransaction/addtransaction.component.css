@@ -1,0 +1,18 @@
+.header{
+    background-image: url(../../../assets/img/home-s-bg.jpg);
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    overflow: hidden;
+    position: relative;
+}
+.card{
+  margin-top: 60px;
+    
+    color: white;
+    background-color: transparent;
+}
+.btn{
+    background-color: #644071;
+    color: white;
+}

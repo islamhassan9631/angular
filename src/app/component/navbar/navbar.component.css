@@ -1,0 +1,43 @@
+nav{
+    background-color: #644071;
+    color: white;
+    font-size: large;
+    height: 50px;
+    position: fixed;
+    right: 0;
+    left: 0;
+    top: 0px;
+    z-index: 2;
+}
+nav a{
+    margin-right: 5px;
+  padding-top: 10px;
+    color: white;
+  
+    
+}
+.nn{
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+a{
+    text-decoration: none;
+}
+.par{
+    border-left: 2px solid white;
+    display: inline-block;
+    
+   
+}
+.par span{
+    margin-left: 10px;
+}
+.par-2{
+    border-left:2px solid white ;
+   display: inline-block;
+}
+.par-2 span{
+    margin-left: 10px;
+    padding-bottom: 5px;
+}

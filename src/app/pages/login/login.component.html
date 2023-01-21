@@ -1,0 +1,42 @@
+<section class="header"><div class="card  mx-auto border border-primary " style="width: 22rem;">
+    <h2 class="ms-2">login</h2>
+    <form #loginForms="ngForm"  (submit)="login(loginForms.value)"  class="container ">
+      <div class="mb-3">
+          <label for="email" class="form-label"><span><i class="fa fa-envelope-o" aria-hidden="true"></i></span> Email</label>
+          <input
+            type="text"
+            class="form-control "
+            id="email"
+            name="email"
+            ngModel
+         #email="ngModel"
+            required
+            email
+          
+          />
+         
+        </div>
+  
+        <div class="mb-3">
+          <label for="password" class="form-label"><span><i class="fa fa-key" aria-hidden="true"></i></span>Password</label>
+          <input
+            type="password"
+            class="form-control "
+            id="password"
+            name="password"
+            ngModel
+           #password="ngModel"
+            required
+            minlength="6"
+           
+          />
+         
+        </div>
+        
+  
+      <button type="submit" class="btn  mb-1" >login</button>
+     
+    </form>
+  
+  </div></section>
+

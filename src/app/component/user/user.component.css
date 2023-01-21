@@ -1,0 +1,57 @@
+
+.connect{
+    background-image: url(../../../assets/img/bg-c-m.jpg);
+    background-position: center;
+    background-size: cover;
+   
+}
+ .profilepic {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+     /* object-fit: cover; 
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 200px; */
+    margin: auto;
+    
+} 
+.left{
+   
+    color: white;
+   
+}
+.userinfo img{
+    width: 100%;
+  
+    padding-left: 5px;
+}
+.information{
+    text-align: center;
+}
+.information span{
+    margin-right: 3px;
+}
+.right{
+    color: white;
+   
+}
+.connect span{
+    color: rgb(39, 36, 36);
+    margin-right: 7px;
+}
+
+.dropdown-menu{
+   
+    background-color: transparent;
+    margin-bottom: 20px;
+    color: white;
+}
+
+/* .navbar-nav .dropdown-toggle:hover +.dropdown-menu{
+display: block;
+    opacity: 1;
+   
+  
+} */

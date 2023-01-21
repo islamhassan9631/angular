@@ -1,0 +1,14 @@
+<div class="col-12 col-md-12col-lg-12 container row mt-5 text">
+    <div class="col-12 col-md-6 col-lg-6 mt-2" *ngFor="let post of posts; let i = index">
+        <div class="card" >
+            <img src="{{post.img}}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">{{post.title}}</h5>
+              <p class="card-text">{{post.text}}</p>
+             
+            </div>
+          </div>
+    </div>
+   
+    <a href="#" class="btn ">show more</a>
+</div>

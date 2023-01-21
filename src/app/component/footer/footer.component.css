@@ -1,0 +1,25 @@
+.footer{
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+}
+.footer h5 {
+    color: #15dedb;
+}
+.footer span {
+    color: #15dedb;
+    padding-right: 5px;
+}
+.time{
+    font-size: 10px;
+}
+.capy{
+    background-color:#020202c2;
+    color: white;
+    text-align: center;
+    height: 50px;
+    
+}
+.mt{
+    padding-top: 10px;
+}

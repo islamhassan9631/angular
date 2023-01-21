@@ -1,0 +1,35 @@
+<section class="header ">
+    <div class="titel mt-5">
+        <h3>ALL CLIENT</h3>
+    </div>
+    <table class="table  text-center table-bordered border-primary  container">
+    <thead>
+      <tr>
+        <th scope="col">id</th>
+        <th scope="col">client</th>
+        <th scope="col">transaction_info</th>
+        
+        <th scope="col"> unit</th>
+       
+        <th scope="col">created_by</th>
+        <th scope="col">controols</th>
+      </tr>
+    </thead>
+    <tbody class="table-group-divider">
+      <tr *ngFor="let tr of transctions">
+        <th scope="row">{{tr._id}}</th>
+        <td>{{tr.client}} </td>
+        <td>{{tr.transaction_info}}</td>
+       
+        <td>{{tr.unit}}</td>
+       
+        <td>{{tr.deposited_by_user}}</td>
+        <td><div class="btn-group" role="group" aria-label="Basic mixed styles example">
+            <button type="button" class="btn btn-success" routerLink="/getsingleclient/">viwe</button>
+            <button type="button" class="btn btn-warning">edit</button>
+            <button type="button" class="btn btn-danger">delete</button>
+          </div></td>
+      </tr>
+     
+    </tbody>
+  </table></section>
