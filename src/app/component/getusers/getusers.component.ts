@@ -8,7 +8,7 @@ import { UserService } from 'src/app/servies/user.service';
   styleUrls: ['./getusers.component.css']
 })
 export class GetusersComponent implements OnInit {
-
+  searchText:any = ''
   users:any[] = [];
   constructor(private userService:UserService,private route:ActivatedRoute ) { }
   id:string=this.route.snapshot.params['id']

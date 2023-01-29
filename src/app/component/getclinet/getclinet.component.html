@@ -1,6 +1,7 @@
 <section class="header ">
     <div class="titel mt-5">
         <h3>ALL CLIENT</h3>
+        <input type="search" [(ngModel)]="searchText" placeholder="search by id or name" name="search" class="search">
     </div>
     <table class="table  text-center table-bordered border-primary  container">
     <thead>
@@ -16,7 +17,7 @@
       </tr>
     </thead>
     <tbody class="table-group-divider">
-      <tr *ngFor="let client of clients">
+      <tr *ngFor="let client of clients |filter:searchText">
         <th scope="row">{{client._id}}</th>
         <td>{{client.fName}} {{client.lName}}</td>
         <td>{{client.email}}</td>

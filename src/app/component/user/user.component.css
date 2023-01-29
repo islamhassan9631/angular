@@ -5,6 +5,10 @@
     background-size: cover;
    
 }
+.bcam{
+    background-color: transparent;
+    border: none;
+}
  .profilepic {
     width: 150px;
     height: 150px;
@@ -22,11 +26,21 @@
     color: white;
    
 }
-.userinfo img{
-    width: 100%;
-  
-    padding-left: 5px;
+.tt{
+    margin-left: 87px;
+   position: relative;
 }
+.cam{
+    position: absolute;
+    right:50%;
+    top: 70%;
+  width: 8px;
+}
+/* .userinfo img{
+    width: 50%;
+  margin: auto;
+    padding-left: 5px;
+} */
 .information{
     text-align: center;
 }

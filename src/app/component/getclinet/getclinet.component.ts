@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./getclinet.component.css']
 })
 export class GetclinetComponent implements OnInit {
+  searchText:any = '';
 clients:any[] = [];
   constructor( private clientService:ClientService) { }
   getAllclients(){

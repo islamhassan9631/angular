@@ -11,6 +11,7 @@ import { UserService } from 'src/app/servies/user.service';
 export class GetsingleuserComponent implements OnInit {
 user:Users={}
 msg:any=''
+show:boolean=false
   constructor(private userService:UserService,private route:ActivatedRoute) { }
   id:string=this.route.snapshot.params['id']
 
@@ -43,6 +44,21 @@ msg:any=''
         }
         
     })
+  }
+  update(data:any){
+    return this.userService.updateuser(this.id,data).subscribe({
+      next:(res)=>{
+        console.log(res);
+        
+      },
+      error: (error:any)=>{
+console.log(error);
+
+      }
+    })
+  }
+  shwo(){
+   this.show=true;
   }
 
   ngOnInit(): void {

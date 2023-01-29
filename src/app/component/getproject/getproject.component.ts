@@ -7,6 +7,7 @@ import { BulidService } from 'src/app/servies/bulid.service';
   styleUrls: ['./getproject.component.css']
 })
 export class GetprojectComponent implements OnInit {
+  searchText:any = ''
 
   buliding:any[] = [];
   constructor(private bulidService:BulidService) { }

@@ -1,4 +1,6 @@
-<div class="col-12 col-md-3 col-lg-3 left mt-5">
+<section class="connect">
+  <div class="row">
+     <div class="col-12 col-md-3 col-lg-3 left mt-5">
     <div class="userinfo mt-5">
 
 
@@ -14,11 +16,120 @@
 
       </div>
     </div>
-    <button class="btn-btn-ms" (click)="deleteuser()">delete</button>
-    <div  *ngIf="msg">
-        <div class="alert alert-danger" role="alert">
-           {{msg}}
-          </div>
+    
+</div>
+<div class="col-12 col-md-7 col-lg-7 mt-5">
+<div  *ngIf="msg">
+    <div class="alert alert-danger" role="alert">
+       {{msg}}
+      </div>
 
+</div>
+<div *ngIf="show">
+  <form #updateForm="ngForm" (ngSubmit)="update(updateForm.value)"  class="container  mb-5 border border-info card">
+    <h2 class="mt-2">updete</h2>
+    <div class="mb-3">
+        <label for="fName" class="form-label"><span><i class="fa fa-user" aria-hidden="true"></i></span> fName</label>
+        <input type="text" class="form-control " id="fName" name="fName" ngModel #fName="ngModel" required [(ngModel)]="user.fName"/>
+        <!-- <div class=" errors d-flex justify-content-center" *ngIf="fName.touched && fName.invalid">
+            <div *ngIf="fName.errors?.['required']">
+              *Name is required*
+            </div>
+        
+          </div> -->
+       
     </div>
-  </div>
+    <div class="mb-3">
+        <label for="lName" class="form-label"><span><i class="fa fa-user" aria-hidden="true"></i></span> lName</label>
+        <input type="text" class="form-control " id="lName" name="lName" ngModel #lName="ngModel" required [(ngModel)]="user.lName" />
+        <!-- <div class=" errors d-flex justify-content-center" *ngIf="lName.touched && lName.invalid">
+            <div *ngIf="lName.errors?.['required']">
+              *Name is required*
+            </div>
+        
+          </div> -->
+       
+    </div>
+
+    <div class="mb-3">
+        <label for="age" class="form-label"><span><i class="fa fa-calendar-o" aria-hidden="true"></i></span> Age</label>
+        <input type="number" class="form-control " id="age" name="age" ngModel  #age="ngModel" [(ngModel)]="user.age"/>
+        
+    </div>
+
+    <div class="mb-3">
+        <label for="email" class="form-label"><span><i class="fa fa-envelope-o" aria-hidden="true"></i></span> Email</label>
+        <input type="text" class="form-control " id="email" name="email" ngModel #email="ngModel" required email
+        
+        [(ngModel)]="user.email"
+            />
+            <!-- <div class=" errors d-flex justify-content-center" *ngIf="email.touched && email.invalid">
+                <div *ngIf="email.errors?.['required']">
+                  *Email is required*
+                </div>
+                <div *ngIf="email.errors?.['email']">
+                  *Please enter valid email*
+                </div>
+              </div>
+      
+              <div class="errors d-flex justify-content-center" *ngIf="invalidEmail">
+                *Sorry email already in use.. try another one*
+              </div>    
+         -->
+
+      
+    </div>
+
+    
+
+    
+    <div class="mb-3">
+        <label for="phone" class="form-label"><span><i class="fa fa-mobile" aria-hidden="true"></i></span> phone</label>
+        <input type="text" class="form-control " id="phone" name="phone" ngModel #phone="ngModel"  [(ngModel)]="user.phone"/>
+      
+    </div>
+    <div class="mb-3">
+        <label for="roles" class="form-label"><span><i class="fa fa-mobile" aria-hidden="true"></i></span> roles</label>
+        <input type="text" class="form-control " id="roles" name="roles" ngModel #roles="ngModel" required 
+        [(ngModel)]="user.roles"
+        />
+        <!-- <div class=" errors d-flex justify-content-center" *ngIf="roles.touched && roles.invalid">
+            <div *ngIf="roles.errors?.['required']">
+              *roles is required*
+            </div>
+        
+          </div> -->
+      
+    </div>
+   
+    <select class="form-select" aria-label="Disabled select example" ngModel #methods="ngModel" name="methods" multiple >
+      <option selected>Open this select menu</option>
+      <option value="post" >post</option>
+      <option value="get">get</option>
+      <option value="3">delete</option>
+    </select>
+
+   
+     
+     
+    
+
+    <button type="submit" class="btn  mb-3" >Submit</button>
+</form>
+</div>
+</div>
+<div class="col-12 col-md-2 col-lg-2   right mt-5">
+  <div class="information mt-5">  
+      <button class="btn btn-danger" (click)="deleteuser()">delete</button>
+
+<div class="mt-3"><button type="button" class="btn btn-warning" (click)="shwo()">edit</button></div>
+
+</div>
+
+</div>
+   
+</div>
+ 
+</section>
+
+

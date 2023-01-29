@@ -1,0 +1,35 @@
+<div class="mt-5">
+    <!-- <div class="col-6" *ngIf="flag">
+        <img src='assets/img/loading.gif' class="w-100">
+    </div>
+    <ng-container *ngIf='!flag'>
+        <div class="col-4" *ngFor="let item of gallery">
+            <div class="card">
+                <img [src]="item.url">
+                <div class="card-body">
+                    <h3>{{item.titele}}</h3>
+                </div>
+            </div>
+        </div>
+
+    </ng-container> -->
+    <button class="btn" (click)="in()">incr</button>
+    <app-addunit [count]="count"></app-addunit>
+    <button class="btn" (click)="de()">de</button>
+ 
+    <app-test2 (sendData)="pushData($event)"></app-test2>
+<table class="table">
+  <thead>
+    <tr>
+      <td>name</td>
+      <td>age</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users">
+      <td>{{user.name}}</td>
+      <td>{{user.age}}</td>
+    </tr>
+  </tbody>
+</table>
+</div>

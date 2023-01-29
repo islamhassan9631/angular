@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-addunit',
@@ -6,7 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./addunit.component.css']
 })
 export class AddunitComponent implements OnInit {
-
+@Input()count=0
+  
+ 
   constructor() { }
 
   ngOnInit(): void {

@@ -1,6 +1,7 @@
 <section class="header ">
     <div class="titel mt-5">
-        <h3>ALL CLIENT</h3>
+        <h3>ALL project</h3>
+        <input type="search" [(ngModel)]="searchText" placeholder="search by id or name" name="search" class="search">
     </div>
     <table class="table  text-center table-bordered border-primary  container">
     <thead>
@@ -13,7 +14,7 @@
       </tr>
     </thead>
     <tbody class="table-group-divider">
-      <tr *ngFor="let bilid of buliding">
+      <tr *ngFor="let bilid of buliding |filter:searchText">
         <th scope="row">{{bilid._id}}</th>
         <td> {{bilid.projectName}}</td>
         <td>{{bilid.proType}}</td>
@@ -26,4 +27,6 @@
       </tr>
      
     </tbody>
-  </table></section>
+  </table>
+  
+</section>

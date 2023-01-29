@@ -1,0 +1,31 @@
+<section class="header">
+    <div class="card  mx-auto border border-primary " style="width: 22rem;" >
+        <h2 class="ms-2">resetCode</h2>
+        <p>Enter  code to complete the reset</p>
+        <form #loginForms="ngForm"  (submit)=" code(loginForms.value)"  class="container ">
+          <div class="mb-3">
+              <label for="resetCode" class="form-label"><span><i class="fa fa-envelope-o" aria-hidden="true"></i></span> resetCode</label>
+              <input
+                type="text"
+                class="form-control "
+                id="resetCode"
+                name="resetCode"
+                ngModel
+             #resetCode="ngModel"
+             
+                resetCode
+              
+              />
+             
+            </div>
+      
+          
+            
+    
+          <button type="submit" class="btn  mb-1" >send</button>
+         
+        </form>
+      
+      </div>   
+
+</section>

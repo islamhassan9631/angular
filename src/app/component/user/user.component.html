@@ -2,15 +2,32 @@
   <div class="row">
     <div class="col-12 col-md-3 col-lg-3 left mt-5">
       <div class="userinfo mt-5">
+<div class="tt"> <img src="http://localhost:3000/upload/{{user.image}}" alt="" class='profilepic' />
+ <div class="cam"><button class="bcam" (click)="shwo()"><span ><i class="fas fa-camera"></i></span></button></div>
+ 
+</div>
 
-
-        <img src="https://images.pexels.com/photos/3228727/pexels-photo-3228727.jpeg?auto=compress&cs=tinysrgb&w=1600"
-          alt="" class='profilepic' />
+<div *ngIf="show2">
+  <form #contactForm="ngForm" (ngSubmit)="uploadFile()">
+    <input class="form-control form-control-sm" id="formFileSm" type="file" name="image" ngModel (change)="handelUpload($event)">
+    <button type="submit">add</button>
+  </form>
+ </div> 
+       
+        
+         
 
         <div class="information mt-3">
           <h5> <span><i class="fas fa-user"></i></span>{{user.fName}} {{user.lName}}</h5>
           <h5> <span><i class="fas fa-envelope"></i></span>{{user.email}}</h5>
           <h5> <span><i class="fas fa-phone-alt"></i></span>{{user.phone}}</h5>
+          <div ><button class="bcam" (click)="showpassword()"><span ><i class="fas fa-lock"></i></span> </button>edit password</div>
+          <div *ngIf="password">
+            <form #updateForm="ngForm" (ngSubmit)="updateuser(updateForm.value)">
+              <input class="form-control form-control-sm"  type="password" name="password" ngModel value="12345678">
+              <button type="submit">add</button>
+            </form>
+          </div>
           <h5> <span><i class="fas fa-phone-alt"></i></span>{{user.age}}</h5>
           <h5> <span><i class="fas fa-phone-alt"></i></span>{{user.roles}}</h5>
 
@@ -63,7 +80,7 @@
           </a>
 
           <ul class="dropdown-menu  border-0" aria-labelledby="navbarDropdown">
-            <li class="border-top border-primary"><a class="dropdown-item" routerLink="/login"><span><i
+            <li class="border-top border-primary"><a class="dropdown-item" routerLink="/addproject"><span><i
                     class="fas fa-envelope"></i></span>Add projct</a></li>
             <li><a class="dropdown-item" routerLink="/getproject"><span><i class="fas fa-envelope"></i></span>get
                 projct</a></li>

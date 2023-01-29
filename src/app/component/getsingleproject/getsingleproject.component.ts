@@ -29,6 +29,25 @@ return this.bulidService.getsingelprojct(this.id).subscribe({
   }
 })
   }
+  deleteprojct(){
+    return this.bulidService.deletprojct(this.id).subscribe({
+      next: (res:any)=>{},
+      error: (err:any)=>{}
+
+    })
+  }
+  updateprojct(data:any){
+    return this.bulidService.editprojct(this.id,data).subscribe({
+      next:(res:any)=>{
+        console.log(res.data);
+        
+      },
+      error:(err:any)=>{
+        console.log(err);
+        
+      }
+    })
+  }
 
   ngOnInit(): void {
     this.getsingleproject()

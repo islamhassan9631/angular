@@ -1,6 +1,7 @@
 <section class="header ">
     <div class="titel mt-5">
         <h3>ALL users</h3>
+        <input type="search" [(ngModel)]="searchText" placeholder="search by name" name="search" class="search">
     </div>
     <table class="table  text-center table-bordered border-primary  container">
     <thead>
@@ -15,7 +16,7 @@
       </tr>
     </thead >
     <tbody class="table-group-divider">
-      <tr *ngFor="let user of users">
+      <tr *ngFor="let user of users |filter:searchText">
         <th scope="row">{{user._id}}</th>
         <td>{{user.fName}} {{user.lName}}</td>
         <td>{{user.email}}</td>
@@ -24,7 +25,7 @@
         <td>{{user.methods}}</td>
         
         <td><div class="btn-group" role="group" aria-label="Basic mixed styles example">
-            <button type="button" class="btn btn-success" routerLink="/getsingleclient/{{user._id}}">viwe</button>
+            <button type="button" class="btn btn-success" routerLink="/getsingleuser/{{user._id}}">viwe</button>
             <button type="button" class="btn btn-warning">edit</button>
             <button type="button" class="btn btn-danger">delete</button>
           </div></td>

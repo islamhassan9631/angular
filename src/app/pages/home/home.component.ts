@@ -1,3 +1,4 @@
+import { BulidService } from 'src/app/servies/bulid.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private x:BulidService) { }
+test(){
+  console.log(this.x.ids);
+  
+}
   ngOnInit(): void {
+    this.test()
   }
 
 }

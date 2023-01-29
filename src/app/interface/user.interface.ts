@@ -4,8 +4,10 @@ export interface Users{
     lName?:string,
     email?:string,
     roles?:string,
-    age?:string,
-    phone?:string,
-    methods?:string
+    age?:any,
+    phone?:any,
+    methods?:string,
+    image?:string
+    password?:string
     
 }

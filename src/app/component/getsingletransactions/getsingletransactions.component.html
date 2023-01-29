@@ -1,1 +1,78 @@
-<p>getsingletransactions works!</p>
+<section class="header ">
+    <div class="titel mt-5">
+      <h3></h3>
+    </div>
+    <table class="table  text-center table-bordered border-primary  container">
+      <thead>
+        <tr>
+            <th >id</th>
+          
+            <th scope="col">transaction_info</th>
+            
+            <th > unit</th>
+           
+            
+            <th >controols</th>
+          </tr>
+      </thead>
+      <tbody class="table-group-divider">
+        <tr>
+          <td >{{tr._id}}</td>
+      
+         
+          <td >
+            <table class="table  text-center table-bordered border-primary  container">
+              <thead>
+                <tr>
+                  <th scope="col">price</th>
+                <th  scope="col">first_part</th>
+                    <th scope="col">remaining </th>
+                   
+                 
+              
+            
+              <th scope="col">lnlay_values</th>
+            
+              <th scope="col">payment_methods
+            </th>
+                  
+                </tr>
+              </thead>
+            <tbody class="table-group-divider">
+              <tr >
+             
+                 
+                  <td>{{item.unit_price }} </td>
+               
+                  <td>{{item.first_part}}</td>
+                  <td>{{item.remaining}}</td>
+                  <td>{{item.lnlay_values}}</td>
+                   <td>{{item.payment_methods}}</td> 
+                  
+                 
+              </tr>
+            </tbody>
+            </table>
+          </td>
+          <td>{{tr.unit}}</td>
+         
+      
+          
+          <td>
+              <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+             
+              <button type="button" class="btn btn-warning">edit</button>
+              <button type="button" class="btn btn-danger " (click)=" delete()">delete</button>
+            </div></td>
+        </tr>
+       
+      </tbody>
+    </table>
+   
+  
+    
+     
+     
+    
+    
+  </section>

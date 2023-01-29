@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./gettransactions.component.css']
 })
 export class GettransactionsComponent implements OnInit {
+  searchText:any = ''
   transctions:any[] = [];
   constructor(private transactionsService:TransactionsService) { }
 getalltransactions(){

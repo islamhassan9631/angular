@@ -1,0 +1,131 @@
+<section class="header ">
+    <div class="titel mt-5">
+        <h3>Build number {{build.num}}</h3>
+        <input type="search" [(ngModel)]="searchText" placeholder="search by number " name="search" class="search">
+    </div>
+    <table class="table  text-center table-bordered border-primary  container">
+    <thead>
+      <tr>
+        <th scope="col">id</th>
+        <th scope="col">area</th>
+          <th>number</th>
+        <th scope="col">floors</th>
+    
+        <th scope="col">controols</th>
+      </tr>
+    </thead>
+    <tbody class="table-group-divider">
+      <tr>
+        <td >{{build._id}}</td>
+        <td> {{build.area}}</td>
+        <td>{{build.num}}</td>
+        <td >
+          <table class="table  text-center table-bordered border-primary  container">
+            <thead>
+              <tr>
+                <th scope="col">id</th>
+              
+                  <th scope="col">number</th>
+               
+            
+                <th scope="col">controols</th>
+              </tr>
+            </thead>
+          <tbody class="table-group-divider">
+            <tr *ngFor="let floor of floors |filter:searchText">
+           
+               
+                <td>{{floor._id}} </td>
+                <td>{{floor.floornumber}}</td>
+                <td> <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                <button type="button" class="btn btn-success" routerLink="/getsinglefloor/getsigleproject/{{projectId}}/getsinglebuilding/{{buildingId}}/getsinglebuild/{{build._id}}/{{floor._id}}">viwe</button>
+                </div></td>
+               
+            </tr>
+          </tbody>
+          </table>
+        </td>
+       
+        <td>
+            <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+            <button type="button" class="btn btn-success" (click)="show()">add</button>
+            <button type="button" class="btn btn-warning" (click)="show2()">edit</button>
+            <button type="button" class="btn btn-danger " (click)="deletesinglebuild()">delete</button>
+          </div></td>
+      </tr>
+     
+    </tbody>
+  </table>
+  <div class="card  mx-auto border border-primary " style="width: 50rem;"  *ngIf="shwo">
+    <div> <h2 class="ms-2">Add floor</h2>
+    <form #buildForms="ngForm"(submit)=" addfloor(buildForms.value)"  class="container ">
+      <div class="mb-3">
+          <label for="floornumber" class="form-label"><span><i class="fa fa-envelope-o" aria-hidden="true"></i></span>floor number</label>
+          <input
+            type="number"
+            class="form-control "
+            id="floornumber"
+            name="floornumber"
+            ngModel
+         #floornumber="ngModel"
+            required
+            floornumber
+          
+          />
+         
+        </div>
+  
+      
+        
+  
+      <button type="submit" class="btnn  mb-1" >Add </button>
+     
+    </form></div>
+   
+  
+  </div>
+  <div class="card  mx-auto border border-primary " style="width: 50rem;" *ngIf="shwo2" >
+    <div> <h2 class="ms-2">update build</h2>
+    <form #updateForms="ngForm"(submit)="updatebuild(updateForms.value)"  class="container ">
+      <div class="mb-3">
+          <label for="num" class="form-label"><span><i class="fa fa-envelope-o" aria-hidden="true"></i></span>build number</label>
+          <input
+            type="number"
+            class="form-control "
+            id="num"
+            name="num"
+            ngModel
+         #num="ngModel"
+         [(ngModel)]="build.num"
+            required
+            num
+          
+          />
+         
+        </div>
+  
+        <div class="mb-3">
+          <label for="area" class="form-label"><span><i class="fa fa-key" aria-hidden="true"></i></span>area</label>
+          <input
+            type="text"
+            class="form-control "
+            id="area"
+            name="area"
+            ngModel
+           #area="ngModel"
+           [(ngModel)]="build.area"
+            required
+           
+           
+          />
+         
+        </div>
+        
+  
+      <button type="submit" class="btnn  mb-1" >update </button>
+     
+    </form></div>
+   
+  
+  </div>
+</section>

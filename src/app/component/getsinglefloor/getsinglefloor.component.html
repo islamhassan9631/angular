@@ -1,0 +1,111 @@
+<section class="header ">
+  <div class="titel mt-5">
+    <h3>Floor {{floor.floornumber}}</h3>
+    <input type="search" [(ngModel)]="searchText" placeholder="search by number " name="search" class="search">
+  </div>
+  <table class="table  text-center table-bordered border-primary  container">
+    <thead>
+      <tr>
+        <th scope="col">id</th>
+        <th scope="col">floornumber</th>
+    
+        <th scope="col">controols</th>
+      </tr>
+    </thead>
+    <tbody class="table-group-divider">
+      <tr>
+        <td >{{floor._id}}</td>
+     <td>{{floor.floornumber}}</td>
+       
+        <td >
+          <table class="table  text-center table-bordered border-primary  container">
+            <thead>
+              <tr>
+                <th scope="col">id</th>
+              
+                  <th scope="col">number</th>
+               
+            
+                <th scope="col">controols</th>
+              </tr>
+            </thead>
+          <tbody class="table-group-divider">
+            <tr *ngFor="let item of units |filter:searchText">
+           
+               
+                <td>{{item._id}} </td>
+                <td>{{item.unitnumber}}</td>
+                <td> <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                <button type="button" class="btn btn-success" routerLink="/getsingleunit/getsinglefloor/getsigleproject/{{projectId}}/getsinglebuilding/{{buildingId}}/getsinglebuild/{{buildId}}/floors/{{floor._id}}/{{item._id}}">viwe</button>
+                </div></td>
+               
+            </tr>
+          </tbody>
+          </table>
+        </td>
+        <!-- /getsinglefloor/getsigleproject/{{projectId}}/getsinglebuilding/{{buildingId}}/getsinglebuild/{{build._id}}/{{floor._id}} -->
+        <td>
+            <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+            <button type="button" class="btn btn-success" (click)="show()">add</button>
+            <button type="button" class="btn btn-warning"(click)="show2()">edit</button>
+            <button type="button" class="btn btn-danger " (click)=" deletesinglefloor()">delete</button>
+          </div></td>
+      </tr>
+     
+    </tbody>
+  </table>
+  <div class="header" *ngIf="shwo">
+    <form #buildForms="ngForm" (submit)=" addunit(buildForms.value)" class="container  mb-5 border border-info card">
+      <h2 class="mt-2">add unit</h2>
+      <div class="mb-3">
+        <label for="unitnumber" class="form-label"><span><i class="fa fa-user" aria-hidden="true"></i></span> unit
+          number</label>
+        <input type="number" class="form-control " id="unitnumber" name="unitnumber" ngModel #unitnumber="ngModel"
+          required />
+
+      </div>
+      <div class="mb-3">
+        <label for="price" class="form-label"><span><i class="fa fa-user" aria-hidden="true"></i></span> price</label>
+        <input type="number" class="form-control " id="price" name="price" ngModel #price="ngModel" required />
+
+      </div>
+
+
+      <button type="submit" class="btnn  mb-3">Submit</button>
+    </form>
+  </div>
+
+  <div class="card  mx-auto border border-primary " style="width: 50rem;" *ngIf="shwo2" >
+    <div> <h2 class="ms-2">update floor</h2>
+    <form #updateForms="ngForm"(submit)="updatefloor(updateForms.value)"  class="container ">
+      <div class="mb-3">
+        <label for="floornumber" class="form-label"><span><i class="fa fa-envelope-o" aria-hidden="true"></i></span>floor number</label>
+        <input
+          type="number"
+          class="form-control "
+          id="floornumber"
+          name="floornumber"
+          ngModel
+          [(ngModel)]="floor.floornumber"
+       #floornumber="ngModel"
+          required
+          floornumber
+        
+        />
+       
+      </div>
+  
+       
+        
+  
+      <button type="submit" class="btnn  mb-1" >update </button>
+     
+    </form></div>
+   
+  
+  </div>
+   
+   
+  
+  
+</section>

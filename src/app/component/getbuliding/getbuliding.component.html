@@ -5,14 +5,21 @@
             <img src="" class="card-img-top" alt="...">
             <div class="card-body">
               <h5 class="card-title">{{bulid.projectName}}</h5>
-              <p class="card-text">{{bulid._id}}</p>
+              
+              <p class="card-text">{{bulid.dec}}</p>
               <div class="card-text" *ngFor="let item of bulid.building">
                
                 <div *ngFor="let br of item.build">
-                  {{br|json}}
-                 <p>{{br.area}}</p> 
+                  
+                 <p>{{br.area}}</p>
+                 <P>{{br.num}}</P> 
+                
                  <div *ngFor="let floor of br.floors">
-                  {{floor|json}}
+                  <p>{{floor.floornumber}}</p>
+                  <div *ngFor ="let unit of floor.units">
+                    {{unit.price}}
+                  </div>
+                 
                  </div>
                 </div>
                

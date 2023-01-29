@@ -21,7 +21,7 @@
       <tr >
         <th scope="row">{{projct._id}}</th>
         <td>{{projct.projectName}} </td>
-        <td>{{projct.proType}}</td>
+        <td>{{projct.dec}}</td>
       <tbody class="table-group-divider">
         <tr *ngFor="let item of buliding">
             <td>{{item._id}} </td>
@@ -40,11 +40,57 @@
             <div class="btn-group" role="group" aria-label="Basic mixed styles example">
             <button type="button" class="btn btn-success" routerLink="/getsingleclient/">viwe</button>
             <button type="button" class="btn btn-warning">edit</button>
-            <button type="button" class="btn btn-danger">delete</button>
+            <button type="button" class="btn btn-danger" (click)="deleteprojct()">delete</button>
           </div>
         </td>
       </tr>
      
     </tbody>
-  </table></section>
+  </table>
+  <div>
+    <div class="card  mx-auto border border-primary " style="width: 50rem;">
+      <h2 class="ms-2">update Project</h2>
+      <form #projectForms="ngForm"  (submit)="updateprojct(projectForms.value)"  class="container ">
+        <div class="mb-3">
+            <label for="projectName" class="form-label"><span><i class="fa fa-envelope-o" aria-hidden="true"></i></span> projectName</label>
+            <input
+              type="text"
+              class="form-control "
+              id="projectName"
+              name="projectName"
+              ngModel
+              [(ngModel)]="projct.projectName"
+           #projectName="ngModel"
+              required
+              projectName
+            
+            />
+           
+          </div>
+    
+          <div class="mb-3">
+            <label for="dec" class="form-label"><span><i class="fa fa-key" aria-hidden="true"></i></span>describe</label>
+            <input
+              type="text"
+              class="form-control "
+              id="dec"
+              name="dec"
+              [(ngModel)]="projct.dec"
+              ngModel
+             #dec="ngModel"
+              required
+             
+             
+            />
+           
+          </div>
+          
+    
+        <button type="submit" class="btn  mb-1" >update </button>
+       
+      </form>
+    
+    </div>
+  </div>
+</section>
 

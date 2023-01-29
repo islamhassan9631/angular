@@ -16,3 +16,8 @@
     overflow: hidden;
     position: relative;
 }
+.btnt{
+    color: white;
+    background-color: #644071;
+    width: 50%;
+}

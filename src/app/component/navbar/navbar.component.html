@@ -18,19 +18,27 @@
               <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                   <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/">Home</a>
+                    <a class="nav-link active" aria-current="page" routerLink="/" *ngIf="isLoggedIn">Home</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="#">About</a>
+                    <a class="nav-link" routerLink="/test">About</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" routerLink="/test">test</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" routerLink="/buliding">Some work</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="#">Connect</a>
+                    <a class="nav-link" routerLink="/" (click)="logout()"  *ngIf="isLoggedIn">Logout</a>
+                  </li>
+                 
+                  
+                  <li class="nav-item">
+                    <a class="nav-link" routerLink="/profile"  *ngIf="isLoggedIn">profile</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" routerLink="/login">login</a>
+                    <a class="nav-link" routerLink="/login" *ngIf="!isLoggedIn">login</a>
                   </li>
                 </ul>
                 

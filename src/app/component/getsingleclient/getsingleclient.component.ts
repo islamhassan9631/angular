@@ -11,6 +11,7 @@ import { Component, OnInit } from '@angular/core';
 export class GetsingleclientComponent implements OnInit {
 clinet:Client={}
 msg:string=''
+show:boolean=false
   constructor(private route:ActivatedRoute,private clinetService:ClientService) { }
   id:string=this.route.snapshot.params['id']
   
@@ -42,6 +43,17 @@ msg:string=''
       }
     })
   }
+  update(data:any){
+    return this.clinetService.update(this.id,data).subscribe({
+      next:(res:any)=>{
+        console.log(res);
+        this.clinet=res.data
+      }
+    })
+  }
+  shwo(){
+    this.show=true;
+   }
   ngOnInit(): void {
     this.getsingleclinet()
   }

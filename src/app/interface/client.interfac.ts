@@ -7,5 +7,7 @@ export interface Client{
     age?:string,
     phone?:string,
     transactions?:string
+    image?:string
+    password?:string
     
 }

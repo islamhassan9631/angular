@@ -1,0 +1,67 @@
+<section class="header ">
+    <div class="titel mt-5">
+        <h3>unit {{unit.unitnumber}}</h3>
+    </div>
+    <table class="table  text-center table-bordered border-primary  container">
+    <thead>
+      <tr>
+        <th scope="col">id</th>
+       
+        <th scope="col">unitnumber</th>
+        <th scope="col">price</th>
+        <th scope="col">status</th>
+        <th scope="col">client</th>
+        <th scope="col">transactions</th>
+        
+        <th scope="col">controols</th>
+      </tr>
+    </thead >
+    <tbody class="table-group-divider">
+      <tr >
+        <th scope="row">{{unit._id}}</th>
+        <td>{{unit.unitnumber}} </td>
+        <td>{{unit.price}}</td>
+        <td>{{unit.status}}</td>
+        <td>{{unit.client}}</td>
+        <td>{{unit.transactions}}</td>
+        
+        <td><div class="btn-group" role="group" aria-label="Basic mixed styles example">
+            <button type="button" class="btn btn-success" routerLink="">viwe</button>
+            <button type="button" class="btn btn-warning" (click)="show()">edit</button>
+            <button type="button" class="btn btn-danger" (click)="deletesingleunit()">delete</button>
+          </div></td>
+      </tr>
+     
+    </tbody>
+  </table>
+  <div class="header" *ngIf="shwo">
+    <form #updateForms="ngForm" (submit)=" updateunit(updateForms.value)" class="container  mb-5 border border-info card">
+      <h2 class="mt-2">update unit</h2>
+      <div class="mb-3">
+        <label for="unitnumber" class="form-label"><span><i class="fa fa-user" aria-hidden="true"></i></span> unit
+          number</label>
+        <input type="number" class="form-control " id="unitnumber" name="unitnumber" ngModel #unitnumber="ngModel"
+          required [(ngModel)]="unit.unitnumber"/>
+
+      </div>
+      <div class="mb-3">
+        <label for="price" class="form-label"><span><i class="fa fa-user" aria-hidden="true"></i></span> price</label>
+        <input type="number" class="form-control " id="price" name="price" ngModel #price="ngModel" required [(ngModel)]="unit.price"/>
+
+      </div>
+      <div class="mb-3">
+        <label for="transactions" class="form-label"><span><i class="fa fa-user" aria-hidden="true"></i></span> transactions</label>
+        <input type="text" class="form-control " id="transactions" name="transactions" ngModel #transactions="ngModel" required [(ngModel)]="unit.transactions"/>
+
+      </div>
+      <select class="form-select" aria-label="Disabled select example" ngModel #status="ngModel" name="status" [(ngModel)]="unit.status">
+       
+        <option value="available" selected>available</option>
+        <option value="sold">sold</option>
+       
+      </select>
+
+      <button type="submit" class="btnn  mb-5">update</button>
+    </form>
+  </div>
+</section>
