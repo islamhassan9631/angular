@@ -1,3 +1,4 @@
+import { AuthGuardService } from './servies/auth-guard-service.service';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
@@ -13,6 +14,11 @@ import { FooterComponent } from './component/footer/footer.component';
 import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { ProfileComponent } from './pages/profile/profile.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
+
+
+
 import { UserComponent } from './component/user/user.component';
 import { BuildingComponent } from './component/building/building.component';
 import { AddusersComponent } from './component/addusers/addusers.component';
@@ -24,6 +30,7 @@ import {HttpClientModule,HTTP_INTERCEPTORS} from '@angular/common/http'
 import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { UserService } from './servies/user.service';
 import { AuthService } from './servies/auth.service';
+// import{ CustomerService } from './servies/customer.service';
 import { TokenService } from './servies/token.service';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { GetbulidingComponent } from './component/getbuliding/getbuliding.component';
@@ -99,17 +106,25 @@ import { Test2Component } from './component/test2/test2.component';
     HttpClientModule,
     ReactiveFormsModule,
     Ng2SearchPipeModule,
-    PdfViewerModule
+    PdfViewerModule,
+    BrowserAnimationsModule, 
+    ToastrModule.forRoot(),
+    
     
   ],
   providers: [
     UserService,
     AuthService,
+    AuthGuardService,
+   
+    
     {
       provide: HTTP_INTERCEPTORS,
       useClass:TokenService,
       multi: true
     },
+     
+    
     BulidService,
     ClientService,
     TransactionsService

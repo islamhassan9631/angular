@@ -2,6 +2,7 @@ import { Bulid } from './../../interface/bulid,intreface';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BulidService } from 'src/app/servies/bulid.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-getsinglebuilding',
@@ -13,8 +14,8 @@ export class GetsinglebuildingComponent implements OnInit {
 builing:Bulid={}
 show:boolean = false
   bulidings:any[] = [];
-    constructor(private bulidService:BulidService,private router:ActivatedRoute ,private route:Router) { 
-      console.log(this.router.snapshot.params)
+    constructor(private bulidService:BulidService,private router:ActivatedRoute ,private route:Router,private toster:ToastrService) { 
+     
     }
     projectId:string=this.router.snapshot.params['projectId']
     id:string = this.router.snapshot.params['id'];
@@ -22,7 +23,7 @@ show:boolean = false
     getsinglebuilding(){
   return this.bulidService.getsinglebuilding(this.projectId,this.id).subscribe({
     next:(res:any)=>{
-      console.log(res.data);
+ 
       this.builing = res.data.building
       this.bulidings=res.data.building.build
   
@@ -30,7 +31,7 @@ show:boolean = false
       
     },
     error: (err:any)=>{
-      console.log(err);
+    
       
     }
   })
@@ -38,12 +39,15 @@ show:boolean = false
     addbuild(data:any){
       this.bulidService.addsinglebuild(this.projectId,this.id,data).subscribe({
         next:(res:any)=>{
+          this.toster.success('Successfully added')
           console.log(res);
-this.route.navigateByUrl('/getsigleproject/63cdf6f20826ebcec5e63d5e/getsinglebuilding/63cdf6f20826ebcec5e63d5f')
+          
+
           
         },
         error: (err:any)=>{
-          console.log(err);
+        console.log(err);
+        
           
         }
       })

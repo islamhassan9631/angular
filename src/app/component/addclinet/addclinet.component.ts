@@ -1,6 +1,7 @@
 import { ClientService } from './../../servies/client.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -14,11 +15,11 @@ export class AddclinetComponent implements OnInit {
   invalidPassword:boolean = false
   msg:string = ''
   msgPassword:string = ''
-  constructor(private clinetrService:ClientService,private router:Router) { }
+  constructor(private clinetrService:ClientService,private router:Router,private toster:ToastrService) { }
   addclinet(credentials:any){
     return this.clinetrService.addclient(credentials).subscribe({
       next:(res:any)=>{
-        console.log(res);
+       this.toster.success("successfully added")
         this.router.navigateByUrl('profile')
       },
       error: (httpError:any)=>{

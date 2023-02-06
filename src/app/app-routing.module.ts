@@ -27,6 +27,7 @@ import { GetsinglefloorComponent } from './component/getsinglefloor/getsingleflo
 import { GetsingleunitComponent } from './component/getsingleunit/getsingleunit.component';
 import { TestComponent } from './component/test/test.component';
 import { ForgotPasswordComponent } from './component/forgot-password/forgot-password.component';
+import { AuthGuardService } from './servies/auth-guard-service.service';
 
 const routes: Routes = [
   {path: '', component:HomeComponent},
@@ -34,27 +35,27 @@ const routes: Routes = [
   {path:"forgotpassword", component:ForgotPasswordComponent},
   {path:'verify', component:VerifyResetCodeComponent},
   {path:'reset', component:ResetPasswordComponent},
-  {path:'profile', component:ProfileComponent},
-  {path:'profileclient', component:ProfileclientComponent},
-  {path:'buliding',component:GetbulidingComponent},
+  {path:'profile', component:ProfileComponent,canActivate:[AuthGuardService]},
+  {path:'profileclient', component:ProfileclientComponent,canActivate:[AuthGuardService]},
+  {path:'buliding',component:GetbulidingComponent,canActivate:[AuthGuardService]},
   {path:'test', component:TestComponent ,data:{type:'post'}},
   {path:'test3', component:TestComponent,data:{type:'post2'}},
-  {path:'addusers',component:AddusersComponent},
-  {path:'addclinet',component:AddclinetComponent},
-  {path:"getclinet", component:GetclinetComponent},
-  {path:'getusers',component:GetusersComponent},
-  {path:'getsingleuser/:id', component:GetsingleuserComponent},
-  {path:'getsingleclient/:id', component:GetsingleclientComponent},
-  {path:'gettransactions',component:GettransactionsComponent},
-  {path:'getsingletransactions/:id', component:GetsingletransactionsComponent},
-  {path:'addtransaction',component:AddtransactionComponent},
-  {path:'getproject',component:GetprojectComponent},
-  {path:'addproject',component:AddprojectComponent},
-  {path:'getsingleproject/:id', component:GetsingleprojectComponent},
-  {path:'getsigleproject/:projectId/getsinglebuilding/:id', component:GetsinglebuildingComponent},
-  {path:'getsigleproject/:projectId/getsinglebuilding/:buildingId/getsinglebuild/:id',component:GetsinglebuildComponent},
-  {path:'getsinglefloor/getsigleproject/:projectId/getsinglebuilding/:buildingId/:getsinglebuild/:buildId/:id',component:GetsinglefloorComponent},
-  {path:'getsingleunit/getsinglefloor/getsigleproject/:projectId/getsinglebuilding/:buildingId/getsinglebuild/:buildId/floors/:floorId/:id', component:GetsingleunitComponent}
+  {path:'addusers',component:AddusersComponent,canActivate:[AuthGuardService]},
+  {path:'addclinet',component:AddclinetComponent,canActivate:[AuthGuardService]},
+  {path:"getclinet", component:GetclinetComponent,canActivate:[AuthGuardService]},
+  {path:'getusers',component:GetusersComponent,canActivate:[AuthGuardService]},
+  {path:'getsingleuser/:id', component:GetsingleuserComponent,canActivate:[AuthGuardService]},
+  {path:'getsingleclient/:id', component:GetsingleclientComponent,canActivate:[AuthGuardService]},
+  {path:'gettransactions',component:GettransactionsComponent,canActivate:[AuthGuardService]},
+  {path:'getsingletransactions/:id', component:GetsingletransactionsComponent,canActivate:[AuthGuardService]},
+  {path:'addtransaction',component:AddtransactionComponent,canActivate:[AuthGuardService]},
+  {path:'getproject',component:GetprojectComponent,canActivate:[AuthGuardService]},
+  {path:'addproject',component:AddprojectComponent,canActivate:[AuthGuardService]},
+  {path:'getsingleproject/:id', component:GetsingleprojectComponent,canActivate:[AuthGuardService]},
+  {path:'getsigleproject/:projectId/getsinglebuilding/:id', component:GetsinglebuildingComponent,canActivate:[AuthGuardService]},
+  {path:'getsigleproject/:projectId/getsinglebuilding/:buildingId/getsinglebuild/:id',component:GetsinglebuildComponent,canActivate:[AuthGuardService]},
+  {path:'getsinglefloor/getsigleproject/:projectId/getsinglebuilding/:buildingId/:getsinglebuild/:buildId/:id',component:GetsinglefloorComponent,canActivate:[AuthGuardService]},
+  {path:'getsingleunit/getsinglefloor/getsigleproject/:projectId/getsinglebuilding/:buildingId/getsinglebuild/:buildId/floors/:floorId/:id', component:GetsingleunitComponent,canActivate:[AuthGuardService]}
 ];
 
 @NgModule({

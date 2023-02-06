@@ -14,7 +14,7 @@ buliding:any[] = [];
   getbuliding(){
    return this.bulidService.getbuliding().subscribe({
       next:(res:any)=>{
-        console.log(res.data.build);
+        
         
 this.buliding=res.data.build
 

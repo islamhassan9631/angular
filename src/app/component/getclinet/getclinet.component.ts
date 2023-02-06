@@ -13,7 +13,7 @@ clients:any[] = [];
   getAllclients(){
     return this.clientService.getAllclients().subscribe({
       next:(res:any) => {
-        console.log(res.data);
+       
         
         this.clients = res.data;
   

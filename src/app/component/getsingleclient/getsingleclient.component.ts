@@ -2,6 +2,7 @@ import { Client } from './../../interface/client.interfac';
 import { ClientService } from './../../servies/client.service';
 import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-getsingleclient',
@@ -12,13 +13,13 @@ export class GetsingleclientComponent implements OnInit {
 clinet:Client={}
 msg:string=''
 show:boolean=false
-  constructor(private route:ActivatedRoute,private clinetService:ClientService) { }
+  constructor(private route:ActivatedRoute,private clinetService:ClientService,private toster:ToastrService) { }
   id:string=this.route.snapshot.params['id']
   
   getsingleclinet(){
     return this.clinetService.getclientId(this.id).subscribe({
       next:(res:any)=>{
-        console.log(res);
+       
         this.clinet=res.data;
         
         
@@ -33,12 +34,12 @@ show:boolean=false
   delete(){
     return this.clinetService.deleteclient(this.id).subscribe({
       next:(res:any)=>{
-        console.log(res);
-        this.msg=res.massage
+       this.toster.success('Client deleted')
+        
         
       },
       error: (err:any)=>{
-        console.log(err);
+       this.toster.error(err.error.message);
         
       }
     })
@@ -46,7 +47,7 @@ show:boolean=false
   update(data:any){
     return this.clinetService.update(this.id,data).subscribe({
       next:(res:any)=>{
-        console.log(res);
+      this.toster.success('Client updated')
         this.clinet=res.data
       }
     })

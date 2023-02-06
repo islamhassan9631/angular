@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { Bulid } from 'src/app/interface/bulid,intreface';
 import { BulidService } from 'src/app/servies/bulid.service';
 
@@ -15,8 +16,8 @@ shwo2:boolean= false
   build:any={}
 
   floors:any[] = [];
-    constructor(private bulidService:BulidService,private router:ActivatedRoute) { 
-      console.log(this.router.snapshot.params)
+    constructor(private bulidService:BulidService,private router:ActivatedRoute,private toster:ToastrService) { 
+    
     }
     projectId:string=this.router.snapshot.params['projectId']
     buildingId:string=this.router.snapshot.params['buildingId']
@@ -25,7 +26,7 @@ shwo2:boolean= false
     getsinglebuild(){
   return this.bulidService.getsinglebuild(this.projectId,this.buildingId,this.id).subscribe({
     next:(res:any)=>{
-      console.log(res.data);
+     
       this.build = res.data.build
 
       this.floors=res.data.build.floors
@@ -34,7 +35,7 @@ shwo2:boolean= false
       
     },
     error: (err:any)=>{
-      console.log(err);
+     
       
     }
   })
@@ -42,7 +43,7 @@ shwo2:boolean= false
     addfloor(data:any){
       return this.bulidService.addfloor(this.projectId,this.buildingId,this.id,data).subscribe({
         next:(res:any)=>{
-          console.log(res);
+          this.toster.success('Success add floor')
           
         },
         error: (err:any)=>{
@@ -60,14 +61,14 @@ shwo2:boolean= false
    deletesinglebuild(){
       return this.bulidService.deletesinglebuild(this.projectId,this.buildingId,this.id).subscribe({
         next:(res:any)=>{
-          console.log(res.data);
+         this.toster.success("Success delete")
           
       
          
           
         },
         error: (err:any)=>{
-          console.log(err);
+          
           
         }
       })
@@ -75,11 +76,11 @@ shwo2:boolean= false
         updatebuild(data:any){
           return this.bulidService.updatesinglebuild(this.projectId,this.buildingId,this.id,data).subscribe({
             next:(res:any)=>{
-              console.log(res);
+              this.toster.success("Success update")
               
             },
             error: (err:any)=>{
-              console.log(err);
+             
               
             }
           })

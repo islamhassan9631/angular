@@ -1,7 +1,9 @@
+import { Router } from '@angular/router';
 import { BulidService } from 'src/app/servies/bulid.service';
 import { TransactionsService } from './../../servies/transactions.service';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-addtransaction',
@@ -14,22 +16,22 @@ export class AddtransactionComponent implements OnInit {
     unit: new FormControl("" ),
     
     client: new FormControl('' ) ,
-     unit_price:new FormControl(43),
+     unitprice:new FormControl(43),
    
      
       payment : new FormControl('cash'),
-      payment_methods : new FormControl(),
-      first_part : new FormControl(),
+      paymentmethods : new FormControl(),
+      firstpart : new FormControl(),
       remaining : new FormControl(),
-      lnlay_values : new FormControl(),
+      lnlayvalues : new FormControl(),
     
 
   })
-  constructor(private transactionsService:TransactionsService,private x:BulidService) { }
+  constructor(private transactionsService:TransactionsService,private x:BulidService ,private toster:ToastrService,private router:Router) { }
   get transactionEmail(){return this.transaction.get('unit')}
   get transactionPassword(){return this.transaction.get('client')}
-  get transaction2(){return this.transaction.get('unit_price')}
-  get frist(){return this.transaction.get("first_part")}
+  get transaction2(){return this.transaction.get('unitprice')}
+  get frist(){return this.transaction.get("firstpart")}
    get transactionInfo(){
    
     
@@ -38,23 +40,24 @@ export class AddtransactionComponent implements OnInit {
 
   get transactionData(){return this.transaction.controls}
   addtransction(){
-    console.log(this.transaction);
-    let y={unit:this.transaction.value.unit,client:this.transaction.value.client,transaction_info:{unit_price:this.transaction.value.unit_price,first_part:this.transaction.value.first_part,
+   
+    let y={unit:this.transaction.value.unit,client:this.transaction.value.client,transaction_info:{unitprice:this.transaction.value.unitprice,firstpart:this.transaction.value.firstpart,
       remaining : this.transaction.value.remaining,
-      lnlay_values:this.transaction.value.lnlay_values,
+      lnlayvalues:this.transaction.value.lnlayvalues,
       payment:this.transaction.value.payment,
-      payment_methods:this.transaction.value.payment_methods
+      paymentmethods:this.transaction.value.paymentmethods
 
     }}
    
     
     return this.transactionsService.addtransaction(y).subscribe({
       next: (res:any) => {
-        console.log(res);
+     this.toster.success('Transaction added')
+     this.router.navigateByUrl('profile')
         
       },
       error: (err:any) => {
-        console.log(err);
+       this.toster.error(err.message)
         
       }
     })
@@ -74,10 +77,10 @@ test(e:any){
  
 }
 test2(e:any){
-  let frist=this.transaction.value.first_part
+  let frist=this.transaction.value.firstpart
   
-this.transaction.value.remaining=(this.transaction.value.unit_price-frist)
- let methods=this.transaction.value.payment_methods
+this.transaction.value.remaining=(this.transaction.value.unitprice-frist)
+ let methods=this.transaction.value.paymentmethods
 
  if (methods == "month"){
   let b= this.transaction.value.remaining/12
@@ -85,27 +88,27 @@ this.transaction.value.remaining=(this.transaction.value.unit_price-frist)
   
 
 this.transaction.patchValue({
-  lnlay_values:(b)
+  lnlayvalues:(b)
   
 })
  }
  if(methods == "half"){
   let uu= this.transaction.value.remaining/2
   this.transaction.patchValue({
-   lnlay_values:(uu)
+   lnlayvalues:(uu)
    
  })
  }
  if(methods == "quarter"){
   let uu= this.transaction.value.remaining/4
   this.transaction.patchValue({
-   lnlay_values:(uu)
+   lnlayvalues:(uu)
    
  })
  }
 // this.transaction.value.lnlay_values=b
 this.transaction.patchValue({
-  remaining:(this.transaction.value.unit_price-frist),
+  remaining:(this.transaction.value.unitprice-frist),
   
 
 })
@@ -117,7 +120,7 @@ this.transaction.patchValue({
     next: (res:any) => {
       
       this.transaction.patchValue({
-        unit_price: res.data.price,
+        unitprice: res.data.price,
         // first_part:(res.data.)
         
        

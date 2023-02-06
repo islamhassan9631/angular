@@ -2,6 +2,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Bulid } from './../../interface/bulid,intreface';
 import { BulidService } from './../../servies/bulid.service';
 import { Component, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-getsingleproject',
@@ -11,12 +12,12 @@ import { Component, OnInit } from '@angular/core';
 export class GetsingleprojectComponent implements OnInit {
 projct:Bulid={}
 buliding:any[] = [];
-  constructor(private bulidService:BulidService,private router:ActivatedRoute) { }
+  constructor(private bulidService:BulidService,private router:ActivatedRoute,private toster:ToastrService) { }
   id:string = this.router.snapshot.params['id'];
   getsingleproject(){
 return this.bulidService.getsingelprojct(this.id).subscribe({
   next:(res:any)=>{
-    console.log(res.data);
+   
     this.projct = res.data.build
     this.buliding=res.data.build.building
 
@@ -31,7 +32,9 @@ return this.bulidService.getsingelprojct(this.id).subscribe({
   }
   deleteprojct(){
     return this.bulidService.deletprojct(this.id).subscribe({
-      next: (res:any)=>{},
+      next: (res:any)=>{
+        this.toster.success('Deleteproject')
+      },
       error: (err:any)=>{}
 
     })
@@ -39,11 +42,11 @@ return this.bulidService.getsingelprojct(this.id).subscribe({
   updateprojct(data:any){
     return this.bulidService.editprojct(this.id,data).subscribe({
       next:(res:any)=>{
-        console.log(res.data);
+       this.toster.success('Edit project')
         
       },
       error:(err:any)=>{
-        console.log(err);
+      
         
       }
     })

@@ -10,6 +10,7 @@ import { AuthService } from 'src/app/servies/auth.service';
 export class LoginComponent implements OnInit {
   admin:boolean= false
   client:boolean= false
+  invalidLogin:boolean = false
   constructor(private userService:AuthService,private router:Router) { }
  
   login(credentials:any){
@@ -22,8 +23,10 @@ export class LoginComponent implements OnInit {
         this.router.navigateByUrl('profile')
       },
       error: (httpError:any)=>{
-        console.log(httpError);}
- 
+        console.log(httpError);
+        this.invalidLogin= true;
+      }
+
       })
     }
     loginclient(credentials:any){
@@ -36,7 +39,9 @@ export class LoginComponent implements OnInit {
        this.router.navigateByUrl('profileclient')
         },
         error: (httpError:any)=>{
-          console.log(httpError);}
+          console.log(httpError);
+          this.invalidLogin= true;
+        }
    
         })
       }
@@ -47,6 +52,9 @@ export class LoginComponent implements OnInit {
       showclient(){
         this.client = true;
         this.admin=false
+      }
+      changeLogin(){
+        this.invalidLogin = false
       }
      ngOnInit(): void {
       

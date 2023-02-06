@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { BulidService } from 'src/app/servies/bulid.service';
 
 @Component({
@@ -14,8 +15,8 @@ shwo2:boolean= false
   floor:any={}
 
   units:any[] = [];
-    constructor(private bulidService:BulidService,private router:ActivatedRoute) { 
-      console.log(this.router.snapshot.params)
+    constructor(private bulidService:BulidService,private router:ActivatedRoute,private toster:ToastrService) { 
+     
     }
     projectId:string=this.router.snapshot.params['projectId']
     buildingId:string=this.router.snapshot.params['buildingId']
@@ -26,7 +27,7 @@ shwo2:boolean= false
     getsinglefloor(){
   return this.bulidService.getsinglefloor(this.projectId,this.buildingId,this.buildId,this.id).subscribe({
     next:(res:any)=>{
-      console.log(res);
+      
       
          this.floor = res.data
       this.units=res.data.units
@@ -42,10 +43,11 @@ shwo2:boolean= false
     addunit(data:any){
       return this.bulidService.addunit(this.projectId,this.buildingId,this.buildId,this.id,data).subscribe({
         next:(res:any)=>{
-          console.log(res.data);
+        this.toster.success('add unit success')
           
              this.floor = res.data[0]
           this.units=res.data.units
+
           
         },
         error: (err:any)=>{
@@ -58,7 +60,7 @@ shwo2:boolean= false
        deletesinglefloor(){
           return this.bulidService.deletesinglefloor(this.projectId,this.buildingId,this.buildId,this.id).subscribe({
             next:(res:any)=>{
-              console.log(res);
+             this.toster.success('delete floor success')
               
               
               
@@ -77,13 +79,13 @@ shwo2:boolean= false
        updatefloor(data:any){
         return this.bulidService.updatesinglefloor(this.projectId,this.buildingId,this.buildId,this.id,data).subscribe({
           next:(res:any)=>{
-            console.log(res);
+           this.toster.success('update floor success')
             
              
             
           },
           error: (err:any)=>{
-            console.log(err);
+           
             
           }
           

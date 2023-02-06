@@ -3,6 +3,7 @@ import { ActivatedRoute, Route, Router } from '@angular/router';
 import { Users } from './../../interface/user.interface';
 import { UserService } from './../../servies/user.service';
 import { Component, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-user',
@@ -15,13 +16,13 @@ users:any[] = [];
 file:any
 show2:boolean= false
 password:boolean= false
-  constructor(private userService:UserService ,private router:Router ,private auth:AuthService) { }
+  constructor(private userService:UserService ,private router:Router ,private auth:AuthService,private toastr: ToastrService) { }
 
 
 getProfile(){
   return this.userService.getProfile().subscribe({
     next:(res:any) => {
-      console.log(res.data);
+     
       this.user = res.data;
       },
       error: (err:any) => {console.log(err);}
@@ -41,6 +42,7 @@ updateuser(data:any){
   return this.userService.editProfile(data).subscribe({
     next:(res:any) => {
       this.user.password = res.data.password;
+      this.toastr.success('password updated');
       localStorage.removeItem('token')
       this.router.navigateByUrl('login')
     }
@@ -76,6 +78,7 @@ showpassword(){
     const myData = new FormData()
     myData.append('avatar',this.file[0])
     this.userService.updateimage(myData).subscribe((res:any)=>{console.log(res);
+      this.toastr.success('profiel img updated');
       this.user.image=res.data.image
       this.show2=false
     })

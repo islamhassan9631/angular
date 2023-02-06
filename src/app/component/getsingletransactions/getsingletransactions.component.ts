@@ -1,6 +1,7 @@
 import { ActivatedRoute } from '@angular/router';
 import { TransactionsService } from './../../servies/transactions.service';
 import { Component, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-getsingletransactions',
@@ -11,7 +12,7 @@ export class GetsingletransactionsComponent implements OnInit {
   tr:any={}
   item:any={}
 
-  constructor(private transactions:TransactionsService ,private route:ActivatedRoute) { }
+  constructor(private transactions:TransactionsService ,private route:ActivatedRoute,private toster:ToastrService) { }
   id:string=this.route.snapshot.params['id']
 
   gettransactions(){
@@ -28,15 +29,18 @@ export class GetsingletransactionsComponent implements OnInit {
   delete(){
     return this.transactions.deletetransction(this.id).subscribe({
       next:(res:any)=>{
-        console.log(res);
+       this.toster.success('transaction deleted')
         
+      },error:(err:any)=>{
+        this.toster.error(err.error.massage
+        )
       }
     })
   }
   update(data:any){
     return this.transactions.updatetransaction(this.id,data).subscribe({
       next:(res:any)=>{
-        console.log(res);
+        this.toster.success('transaction update')
         
       }
     })

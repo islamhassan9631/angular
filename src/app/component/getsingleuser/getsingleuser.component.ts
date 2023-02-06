@@ -2,6 +2,9 @@ import { Users } from './../../interface/user.interface';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { UserService } from 'src/app/servies/user.service';
+import { ToastrService } from 'ngx-toastr';
+
+
 
 @Component({
   selector: 'app-getsingleuser',
@@ -12,7 +15,7 @@ export class GetsingleuserComponent implements OnInit {
 user:Users={}
 msg:any=''
 show:boolean=false
-  constructor(private userService:UserService,private route:ActivatedRoute) { }
+  constructor(private userService:UserService,private route:ActivatedRoute,private toastr: ToastrService) { }
   id:string=this.route.snapshot.params['id']
 
   getsingleuser(){
@@ -20,6 +23,7 @@ show:boolean=false
       next:(res:any)=>{
         console.log(res);
         this.user=res.data;
+        
         
       },
       error: (err:any)=>{
@@ -33,13 +37,16 @@ show:boolean=false
     return this.userService.deleteuser(this.id).subscribe({
       next:(res:any) => {
         // console.log(res);
-        this.msg=res.massage
-        
+        // this.msg=res.massage
+        //  this.toastr.error( res.massage)
         
       },
         error: (error:any) =>{
-          console.log(error.massage.massage);
-          this.msg=error.massage.massage;
+         
+          this.toastr.error(error.error.massage);
+          
+           
+         
           
         }
         
@@ -48,12 +55,13 @@ show:boolean=false
   update(data:any){
     return this.userService.updateuser(this.id,data).subscribe({
       next:(res)=>{
-        console.log(res);
+     this.toastr.success("success",'user updated')
+     this.show=false
         
       },
       error: (error:any)=>{
-console.log(error);
-
+        this.toastr.error(error.error.massage);
+        this.show=false
       }
     })
   }

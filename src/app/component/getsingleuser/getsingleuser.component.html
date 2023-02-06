@@ -27,7 +27,7 @@
 </div>
 <div *ngIf="show">
   <form #updateForm="ngForm" (ngSubmit)="update(updateForm.value)"  class="container  mb-5 border border-info card">
-    <h2 class="mt-2">updete</h2>
+    <h2 class="mt-2">update</h2>
     <div class="mb-3">
         <label for="fName" class="form-label"><span><i class="fa fa-user" aria-hidden="true"></i></span> fName</label>
         <input type="text" class="form-control " id="fName" name="fName" ngModel #fName="ngModel" required [(ngModel)]="user.fName"/>

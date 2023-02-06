@@ -1,3 +1,4 @@
+import { ToastrService } from 'ngx-toastr';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { BulidService } from 'src/app/servies/bulid.service';
@@ -10,7 +11,7 @@ import { BulidService } from 'src/app/servies/bulid.service';
 export class GetsingleunitComponent implements OnInit {
   shwo:boolean= false
 unit:any={}
-  constructor(private bulidService:BulidService,private router:ActivatedRoute) { 
+  constructor(private bulidService:BulidService,private router:ActivatedRoute,private toster:ToastrService) { 
     console.log(this.router.snapshot.params)
   }
   projectId:string=this.router.snapshot.params['projectId']
@@ -39,10 +40,10 @@ unit:any={}
       deletesingleunit(){
         return this.bulidService.deletesingleunit(this.projectId,this.buildingId,this.buildId,this.floorId,this.id).subscribe({
           next:(res:any)=>{
-            console.log(res.data);
+           
+            this.toster.success('unit deleted');
             
-            
-              console.log(res);
+             
               
             
           },
@@ -57,7 +58,7 @@ unit:any={}
             return this.bulidService.updatesingleunit(this.projectId,this.buildingId,this.buildId,this.floorId,this.id,data).subscribe({
               next:(res:any)=>{
                 console.log(res.data);
-               
+                this.toster.success('unit updated');
                 
                  
                   

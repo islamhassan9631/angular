@@ -1,6 +1,7 @@
 import { Router } from '@angular/router';
 import { BulidService } from 'src/app/servies/bulid.service';
 import { Component, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-addproject',
@@ -9,11 +10,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddprojectComponent implements OnInit {
 
-  constructor(private BulidService:BulidService,private router:Router) { }
+  constructor(private BulidService:BulidService,private router:Router,private toster:ToastrService) { }
   addproject(data:any) {
     this.BulidService.addproject(data).subscribe({
       next: (res:any) => {
-        console.log(res);
+       this.toster.success('Project added')
         this.router.navigateByUrl('getproject')
         
       },
